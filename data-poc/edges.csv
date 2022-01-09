@@ -1,0 +1,8 @@
+merge (:Message { id: 1 })<-[:follows { author: 1 }]->(:Message { id: 2 })
+merge (:Message { id: 2 })<-[:follows { author: 1 }]->(:Message { id: 4 })
+merge (:Message { id: 4 })<-[:follows { author: 1 }]->(:Message { id: 3 })
+merge (:Message { id: 3 })<-[:follows { author: 1 }]->(:Message { id: 5 })
+merge (:Message { id: 1 })<-[:follows { author: 2 }]->(:Message { id: 2 })
+merge (:Message { id: 2 })<-[:follows { author: 2 }]->(:Message { id: 3 })
+merge (:Message { id: 3 })<-[:follows { author: 2 }]->(:Message { id: 4 })
+merge (:Message { id: 4 })<-[:follows { author: 2 }]->(:Message { id: 5 })

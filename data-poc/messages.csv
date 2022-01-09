@@ -1,0 +1,7 @@
+with [{ id: 1, content: "first", author: 1 },
+{ id: 2, content: "second", author: 1},
+{ id: 3, content: "third", author: 2},
+{ id: 4, content: "third", author: 1},
+{ id: 5, content: "wait, what?", author: 2}] as nodes
+unwind nodes as node
+create (m:Message) set m += $node;
