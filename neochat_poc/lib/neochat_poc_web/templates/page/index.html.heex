@@ -1,3 +1,19 @@
-<section>
-  
-</section>
+<div class="h-full py-6">
+  <section id="messages" class="h-full max-w-xl mx-auto flex flex-col">
+    <ul id="message-list" class="flex-1 flex flex-col gap-3 overflow-y">
+      <%= for %{ "id" => id, "content" => content } <- @messages do %>
+        <li>
+          <div id="message-{id}" class="border-solid border-2 border-gray-400 rounded p-2">
+            <span><%= content %></span>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <div id="new-message">
+      <label for="message">
+        New message
+        <input type="text" id="message" class="block w-full p-2"/>
+      </label>
+    </div>
+  </section>
+</div>

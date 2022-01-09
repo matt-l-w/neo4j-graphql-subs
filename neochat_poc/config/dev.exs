@@ -16,7 +16,8 @@ config :neochat_poc, NeochatPocWeb.Endpoint,
   secret_key_base: "GnrKXrO9ZTfFGv5OWTIfYKrFfDD+wpwINlmhciHPln3xoXZ7kvzwnG6zfzlgpk98",
   watchers: [
     # Start the esbuild watcher by calling Esbuild.install_and_run(:default, args)
-    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]}
+    esbuild: {Esbuild, :install_and_run, [:default, ~w(--sourcemap=inline --watch)]},
+    tailwind: {Tailwind, :install_and_run, [:default, ~w(--watch)]}
   ]
 
 # ## SSL Support
