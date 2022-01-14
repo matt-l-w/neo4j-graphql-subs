@@ -1,0 +1,19 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "Matthew Williams",
+  "license": "ISC",
+  "dependencies": {
+    "@neo4j/graphql": "^2.5.5",
+    "apollo-server": "^3.6.1",
+    "dotenv": "^11.0.0",
+    "graphql": "^15.5.1",
+    "neo4j-driver": "^4.4.1"
+  }
+}

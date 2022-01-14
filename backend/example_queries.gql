@@ -1,0 +1,53 @@
+query Messages {
+  users {
+    username
+  }
+}
+
+mutation CreateMessages($createMessagesInput2: [MessageCreateInput!]!) {
+  createMessages(input: $createMessagesInput2) {
+    info {
+      nodesCreated
+      relationshipsCreated
+    }
+  }
+}
+
+mutation DeleteMessages($where: MessageWhere) {
+  deleteMessages(where: $where) {
+    nodesDeleted
+  }
+}
+
+
+{
+"createMessagesInput2": [
+  {
+    "content": "Second person 2",
+    "author": {
+      "connect": {
+        "where": {
+          "node": {
+            "username": "bar"
+          }
+        }
+      }
+    },
+    "parents": {
+      "connect": {
+        "where": {
+          "node": {
+            "content": "First person 2"
+          }
+        },
+        "edge": {
+          "author": "bar"
+        }
+      }
+    }
+  }
+],
+"where": {
+  "content_CONTAINS": "person 2"
+}
+}
