@@ -6,13 +6,13 @@ const neo4j = require("neo4j-driver");
 
 const typeDefs = gql`
     type User {
-      id: String #uuid
+      id: ID #uuid
       username: String
       messages: [Message] @relationship(type: "WROTE", direction: OUT)
     }
 
     type Message {
-      id: String #uuid
+      id: ID #uuid
       content: String
       author: User @relationship(type: "WROTE", direction: IN)
       parents: [Message] @relationship(type: "FOLLOWS", direction: OUT, properties: "Follows")
@@ -20,7 +20,7 @@ const typeDefs = gql`
     }
 
     interface Follows @relationshipProperties {
-      user: String #uuid
+      user: ID #uuid
     }
 `;
 
