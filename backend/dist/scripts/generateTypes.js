@@ -41,7 +41,7 @@ const neo4jDriver_1 = __importDefault(require("../src/neo4jDriver"));
 const ogm = new graphql_ogm_1.OGM({ typeDefs: types_graphql_1.default, driver: neo4jDriver_1.default });
 function main() {
     return __awaiter(this, void 0, void 0, function* () {
-        const outFile = path.join(__dirname, '../', "types.ogm.ts");
+        const outFile = path.join(__dirname, '../src', "types.ogm.ts");
         yield (0, graphql_ogm_1.generate)({
             ogm,
             outFile,
