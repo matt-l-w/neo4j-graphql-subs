@@ -6,21 +6,25 @@ const neo4j = require("neo4j-driver");
 
 const typeDefs = gql`
     type User {
-      id: ID #uuid
-      username: String
-      messages: [Message] @relationship(type: "WROTE", direction: OUT)
+      id: ID! @id
+      messages: [Message!] @relationship(type: "WROTE", direction: OUT)
+      createdAt: DateTime! @timestamp(operations: [CREATE])
+      updatedAt: DateTime! @timestamp(operations: [UPDATE])
     }
 
     type Message {
-      id: ID #uuid
-      content: String
-      author: User @relationship(type: "WROTE", direction: IN)
-      parents: [Message] @relationship(type: "FOLLOWS", direction: OUT, properties: "Follows")
-      children: [Message] @relationship(type: "FOLLOWS", direction: IN, properties: "Follows")
+      id: ID! @id
+      content: String!
+      author: User! @relationship(type: "WROTE", direction: IN)
+      parents: [Message!] @relationship(type: "FOLLOWS", direction: OUT, properties: "Follows")
+      children: [Message!] @relationship(type: "FOLLOWS", direction: IN, properties: "Follows")
+      createdAt: DateTime! @timestamp(operations: [CREATE])
+      updatedAt: DateTime! @timestamp(operations: [UPDATE])
     }
 
     interface Follows @relationshipProperties {
-      user: ID #uuid
+      user: ID! @id
+      createdAt: DateTime! @timestamp(operations: [CREATE])
     }
 `;
 
