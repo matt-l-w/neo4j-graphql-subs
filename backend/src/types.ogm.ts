@@ -107,6 +107,11 @@ export type MutationUpdateMessagesArgs = {
   connectOrCreate?: Maybe<MessageConnectOrCreateInput>;
 };
 
+export type Subscription = {
+  __typename?: "Subscription";
+  messages?: Maybe<Array<Message>>;
+};
+
 export enum SortDirection {
   /** Sort by field values in ascending order. */
   Asc = "ASC",

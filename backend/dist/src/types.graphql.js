@@ -24,5 +24,9 @@ exports.typeDefs = (0, apollo_server_1.gql) `
       user: ID! @id
       createdAt: DateTime! @timestamp(operations: [CREATE])
     }
+
+    type Subscription {
+      messages: [Message!]
+    }
 `;
 exports.default = exports.typeDefs;

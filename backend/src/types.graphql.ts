@@ -22,6 +22,10 @@ export const typeDefs = gql`
       user: ID! @id
       createdAt: DateTime! @timestamp(operations: [CREATE])
     }
+
+    type Subscription {
+      messages: [Message!]
+    }
 `;
 
 export default typeDefs;
