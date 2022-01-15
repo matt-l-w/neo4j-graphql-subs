@@ -2,18 +2,32 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "node index.js"
+    "build": "tsc",
+    "build:watch": "tsc -w",
+    "start": "node dist/index.js",
+    "start:dev": "concurrently -k \"npm run build:watch\" \"nodemon\"",
+    "gen:types": "ts-node scripts/generateTypes.ts"
   },
   "keywords": [],
   "author": "Matthew Williams",
   "license": "ISC",
   "dependencies": {
     "@neo4j/graphql": "^2.5.5",
+    "@neo4j/graphql-ogm": "^2.5.5",
     "apollo-server": "^3.6.1",
     "dotenv": "^11.0.0",
     "graphql": "^15.5.1",
     "neo4j-driver": "^4.4.1"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  },
+  "nodemonConfig": {
+    "watch": "dist"
   }
 }

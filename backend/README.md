@@ -5,5 +5,11 @@ Creates a graphql API for the neo4j database.
 ## Running
 
 ```sh
-npm start
+npm run start:dev
+```
+
+## Gen Typescript Types
+
+```sh
+npm run gen:types
 ```
