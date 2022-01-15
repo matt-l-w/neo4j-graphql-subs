@@ -20,7 +20,7 @@ const typeDefs = gql`
     }
 
     interface Follows @relationshipProperties {
-      author: String #uuid
+      user: String #uuid
     }
 `;
 
