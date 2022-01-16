@@ -24,7 +24,6 @@ const operationEventPlugin = (eventEmitter, operationName, eventName) => ({
                         }
                         if (requestContext.operationName === operationName) {
                             console.debug(`${operationName} finished with no errors. Emitting event.`);
-                            console.debug(requestContext.response.data);
                             eventEmitter.emit(eventName, requestContext.response.data);
                         }
                     });

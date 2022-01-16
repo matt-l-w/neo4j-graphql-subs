@@ -50,10 +50,7 @@ async function startApolloServer() {
             }
           }
         },
-        context: { driver },
-        onNext: (ctx, msg, args, result) => {
-          console.dir(result);
-        },
+        context: (ctx, _msg, _args) => ctx,
       }, wsServer)
     })
     resolve(undefined);
